@@ -267,7 +267,7 @@ class TextVAE:
     
     def build_model(self):
         inputs = Input(shape=(self.max_sequence_length,))
-        x = Embedding(self.vocab_size, 128, mask_zero=True)(inputs)
+        x = Embedding(self.vocab_size, 256, mask_zero=True)(inputs) # Увеличиваем embedding dim 128->256 критически важно
         x = Conv1D(64, 5, activation='relu', padding='same')(x)
         x = self.residual_block(x, 64)
         x = self.residual_block(x, 128)
@@ -515,3 +515,4 @@ class TextVAE:
         generated_pairs = self.generate_queries_from_centroids(centroids, num_queries_per_topic, temperature)
         self.save_generated_pairs(generated_pairs)
         return len(generated_pairs)
+
