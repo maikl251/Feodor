@@ -104,5 +104,9 @@ Features
 **Title:** Automated Text Processing and Generation System Based on VAE and Q-Networks  
 **DOI:** [`10.5281/zenodo.17180095`](https://doi.org/10.5281/zenodo.17180095)  
 **Archive:** Zenodo (CERN)
+**Title:** Automated Text Processing and Generation System Based on VAE and Q-Networks (Part2).
+**DOI:**  https://doi.org/10.5281/zenodo.17229330
+**Archive:** Zenodo (CERN)
+
 
 
