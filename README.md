@@ -7,6 +7,7 @@ VAE модели:
 Q-сети:
 - LSTM Q-network (`q.py`) - используется по умолчанию
 - Transformer Q-network (`q1.py`) - альтернативная архитектура
+  
 ➤ Активация LSTM-VAE + Transformer Q-network:
 1. Переименуйте `vae.py` → `vae_backup.py` и `q.py` → `q_backup.py`
 2. Переименуйте `vae1.py` → `vae.py` и `q1.py` → `q.py`
@@ -62,6 +63,7 @@ VAE Models:
 Q-networks:
 - LSTM Q-network (`q.py`) - used by default
 - Transformer Q-network (`q1.py`) - alternative architecture
+  
 ➤ Activating LSTM-VAE + Transformer Q-network:
 1. Rename `vae.py` → `vae_backup.py` and `q.py` → `q_backup.py`
 2. Rename `vae1.py` → `vae.py` and `q1.py` → `q.py`
@@ -107,6 +109,7 @@ Features
 **Title:** Automated Text Processing and Generation System Based on VAE and Q-Networks (Part2).
 **DOI:**  https://doi.org/10.5281/zenodo.17229330
 **Archive:** Zenodo (CERN)
+
 
 
 
