@@ -11,12 +11,15 @@ Q-сети:
 ➤ Активация LSTM-VAE + Transformer Q-network:
 1. Переименуйте `vae.py` → `vae_backup.py` и `q.py` → `q_backup.py`
 2. Переименуйте `vae1.py` → `vae.py` и `q1.py` → `q.py`
+   
 ➤ Возврат к CNN-VAE + LSTM Q-network:
 1. Переименуйте `vae_backup.py` → `vae.py` и `q_backup.py` → `q.py`
 2. Переименуйте текущие `vae.py` → `vae1.py` и `q.py` → `q1.py`
+   
 ➤ Смешанные конфигурации:
 - CNN-VAE + Transformer**: `vae.py` + `q1.py` → `q.py`
 - LSTM-VAE + LSTM**: `vae1.py` → `vae.py` + `q.py`
+  
 > Важно: Всегда создавайте резервные копии файлов. Рекомендуется использовать Git для контроля версий.
 
 Структура проекта
@@ -67,12 +70,15 @@ Q-networks:
 ➤ Activating LSTM-VAE + Transformer Q-network:
 1. Rename `vae.py` → `vae_backup.py` and `q.py` → `q_backup.py`
 2. Rename `vae1.py` → `vae.py` and `q1.py` → `q.py`
+   
 ➤ Reverting to CNN-VAE + LSTM Q-network:
 1. Rename `vae_backup.py` → `vae.py` and `q_backup.py` → `q.py`
 2. Rename current `vae.py` → `vae1.py` and `q.py` → `q1.py`
+   
 ➤ Mixed Configurations:
 - CNN-VAE + Transformer: `vae.py` + rename `q1.py` → `q.py`
 - LSTM-VAE + LSTM**: rename `vae1.py` → `vae.py` + `q.py`
+  
 > Warning: Always create file backups. Using Git for version control is highly recommended.
 
  
@@ -109,6 +115,7 @@ Features
 **Title:** Automated Text Processing and Generation System Based on VAE and Q-Networks (Part2).
 **DOI:**  https://doi.org/10.5281/zenodo.17229330
 **Archive:** Zenodo (CERN)
+
 
 
 
