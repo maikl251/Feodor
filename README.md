@@ -1,9 +1,11 @@
 Автоматизированная система обработки и генерации текстов на основе VAE и Q-сетей
 Переключение между архитектурами VAE и Q-сети
 Система поддерживает несколько архитектур нейросетей:
+
 VAE модели:
 - CNN-VAE (`vae.py`) - используется по умолчанию
 - LSTM-VAE (`vae1.py`) - альтернативная архитектура
+  
 Q-сети:
 - LSTM Q-network (`q.py`) - используется по умолчанию
 - Transformer Q-network (`q1.py`) - альтернативная архитектура
@@ -60,9 +62,11 @@ Q-сети:
 Automated Text Processing and Generation System Based on VAE and Q-Networks
 Switching Between VAE and Q-network Architectures
 The system supports multiple neural network architectures:
+
 VAE Models:
 - CNN-VAE (`vae.py`) - used by default
 - LSTM-VAE (`vae1.py`) - alternative architecture
+  
 Q-networks:
 - LSTM Q-network (`q.py`) - used by default
 - Transformer Q-network (`q1.py`) - alternative architecture
@@ -115,6 +119,7 @@ Features
 **Title:** Automated Text Processing and Generation System Based on VAE and Q-Networks (Part2).
 **DOI:**  https://doi.org/10.5281/zenodo.17229330
 **Archive:** Zenodo (CERN)
+
 
 
 
