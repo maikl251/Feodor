@@ -49,7 +49,7 @@ Q-сети:
 
 Особенности
 
-- Проект ориентирован на обработку и генерацию текстов на **русском языке**.
+- Проект ориентирован на обработку и генерацию текстов на **русском языке** (можно изменять проведя коррекцию модуля morph_singleton.py).
 - Графический интерфейс поддерживает кириллицу и может быть адаптирован под нужды пользователя.
 - Возможна настройка структуры папок и путей.
 
@@ -109,7 +109,7 @@ Q-networks:
 
 Features
 
-- Designed for processing and generating *Russian-language texts*.
+- Designed for processing and generating *Russian-language texts* (can be changed by adjusting the module morph_singleton.py).
 - GUI supports Cyrillic and can be customized.
 - Folder structure and UI paths are flexible.
 
@@ -121,6 +121,7 @@ Features
 **DOI:**  https://doi.org/10.5281/zenodo.17229330
 
 **Archive:** Zenodo (CERN)
+
 
 
 
