@@ -383,30 +383,98 @@ class TextVAE:
         generated_pairs = []
         try:
             for theme, centroid in centroids.items():
-                for _ in range(num_queries_per_topic):
-                    z = np.random.normal(loc=centroid, scale=temperature, size=(1, self.latent_dim))
+                # Добавляем случайное смещение к центроиду для разнообразия
+                centroid_variation = 0.3  # Коэффициент вариации центроида
+            
+                for i in range(num_queries_per_topic):
+                    # Увеличиваем случайность для каждой генерации
+                    current_temperature = temperature * (1.0 + 0.2 * random.random())  # ±20% к температуре
+                
+                    # Добавляем дополнительное случайное смещение к центроиду
+                    random_offset = np.random.normal(scale=centroid_variation, size=centroid.shape)
+                    perturbed_centroid = centroid + random_offset
+                
+                    z = np.random.normal(loc=perturbed_centroid, scale=current_temperature, size=(1, self.latent_dim))
                     sequence = self.decoder.predict(z, verbose=0)[0]
-                    probs = sequence / temperature
-                    probs = np.exp(probs) / np.sum(np.exp(probs), axis=-1, keepdims=True)
-                    
+                
+                    # Используем топ-k sampling вместо чистого random choice
+                    def top_k_sampling(probs, k=10):
+                        indices = np.argpartition(probs, -k)[-k:]
+                        top_k_probs = probs[indices]
+                        top_k_probs = top_k_probs / np.sum(top_k_probs)
+                        return np.random.choice(indices, p=top_k_probs)
+                
                     generated_indices = []
+                    used_words = set()  # Отслеживаем использованные слова для избежания повторов
+                
                     for t in range(self.max_sequence_length):
-                        word_idx = np.random.choice(self.vocab_size, p=probs[t])
+                        probs = sequence[t] / current_temperature
+                        probs = np.exp(probs) / np.sum(np.exp(probs))
+                    
+                        # Пробуем несколько раз получить уникальное слово
+                        for attempt in range(5):  # Максимум 5 попыток
+                            if len(used_words) < self.vocab_size * 0.1:  # Если использовано меньше 10% слов
+                                word_idx = top_k_sampling(probs, k=min(10, len(probs)//2))
+                            else:
+                                word_idx = np.random.choice(self.vocab_size, p=probs)
+                        
+                            word = self.tokenizer.index_word.get(word_idx, '<OOV>')
+                        
+                            # Пропускаем стоп-слова и слишком короткие слова
+                            if (word_idx != 0 and 
+                                word != '<OOV>' and 
+                                len(word) > 2 and
+                                word not in used_words):
+                                break
+                        else:
+                            # Если не нашли подходящее слово, используем любое
+                            word_idx = np.random.choice(self.vocab_size, p=probs)
+                    
                         if word_idx == 0:
                             break
+                        
+                        word = self.tokenizer.index_word.get(word_idx, '<OOV>')
+                        used_words.add(word)
                         generated_indices.append(word_idx)
-                    
+                
                     words = [self.tokenizer.index_word.get(idx, '<OOV>') for idx in generated_indices]
-                    text = ' '.join(words)
-                    mid = len(words) // 2
-                    question = ' '.join(words[:mid])
-                    answer = ' '.join(words[mid:])
-                    if question.strip() and answer.strip():
+                
+                    # Убедимся, что есть достаточно слов для разделения
+                    if len(words) >= 4:
+                        # Случайное разделение на вопрос и ответ (не обязательно пополам)
+                        split_point = random.randint(2, len(words) - 2)
+                        question = ' '.join(words[:split_point])
+                        answer = ' '.join(words[split_point:])
+                    
+                        # Проверяем, что вопрос и ответ достаточно разные
+                        question_words = set(question.split())
+                        answer_words = set(answer.split())
+                        common_words = question_words.intersection(answer_words)
+                    
+                        # Если слишком много общих слов, пробуем другое разделение
+                        if len(common_words) / min(len(question_words), len(answer_words)) > 0.7:
+                            # Пробуем альтернативное разделение
+                            alternative_split = len(words) // 3 + random.randint(0, len(words) // 3)
+                            if 2 <= alternative_split <= len(words) - 2:
+                                question = ' '.join(words[:alternative_split])
+                                answer = ' '.join(words[alternative_split:])
+                
+                    if len(words) < 4:
+                        # Для коротких последовательностей используем стандартное разделение
+                        mid = len(words) // 2
+                        question = ' '.join(words[:mid])
+                        answer = ' '.join(words[mid:])
+                
+                    if (question.strip() and answer.strip() and 
+                        question != answer and 
+                        len(question.split()) >= 2 and 
+                        len(answer.split()) >= 2):
                         generated_pairs.append({'question': question, 'answer': answer, 'theme': theme})
+                    
         except Exception as e:
             logging.error(f"Ошибка генерации запросов: {e}")
-        return generated_pairs
-    
+        return generated_pairs 
+   
     def save_generated_pairs(self, generated_pairs):
         try:
             existing_pairs = []
