@@ -36,8 +36,8 @@ Q-сети:
 - `vae1.py` — модель вариационного автоэнкодера на основе LSTM (альтернатива)
 - `q.py` — реализация Q-сети LSTM (по умолчанию)
 - `q1.py` — Q-сеть на основе Transformer (альтернатива)
-- 'q_lstm.py' — LSTM-реализация Q-сети с реализацией механизма логико-рефлексивной генерации цепочек рассуждений
-- 'q_trans.py' — трансформерная версия с реализацией механизма логико-рефлексивной генерации цепочек рассуждений
+- `q_lstm.py` — LSTM-реализация Q-сети с реализацией механизма логико-рефлексивной генерации цепочек рассуждений
+- `q_trans.py` — трансформерная версия с реализацией механизма логико-рефлексивной генерации цепочек рассуждений
 - `lem1.py` — модуль лемматизации текста
 - `morph_singleton.py` — обёртка для `pymorphy2` (морфологический анализатор для русского языка)
 
@@ -104,8 +104,8 @@ Q-networks:
 - `vae1.py` — LSTM-based Variational Autoencoder (alternative)
 - `q.py` — LSTM-based Q-network (default)
 - `q1.py` — Transformer-based Q-network (alternative)
-- 'q_lstm.py' — LSTM implementation of the Q-network with the implementation of the mechanism of logical-reflexive generation of reasoning chains
-- 'q_trans.py' — transformer version with the implementation of the mechanism of logical-reflexive generation of reasoning chains
+- `q_lstm.py` — LSTM implementation of the Q-network with the implementation of the mechanism of logical-reflexive generation of reasoning chains
+- `q_trans.py` — transformer version with the implementation of the mechanism of logical-reflexive generation of reasoning chains
 - `lem1.py` — Text lemmatization module
 - `morph_singleton.py` — Wrapper for `pymorphy2` (morphological analyzer for Russian language)
  Usage
@@ -135,6 +135,7 @@ Features
 **DOI:**  https://doi.org/10.5281/zenodo.17229330
 
 **Archive:** Zenodo (CERN)
+
 
 
 
