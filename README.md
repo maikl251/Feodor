@@ -97,7 +97,7 @@ Q-networks:
 ➤ Configurations with Q-networks that implement the mechanism of logical-reflexive generation of reasoning chains:
 - similar file renaming (the project logic uses the name of the main file, q.py)
 
-➤ The final versions of the code modules have the prefix ¬¬_f and take the following form: lem1_f, main_menu_f, morph_singleton_f, q_f, vae_f with the .py extension (the work is described in Automated Text Processing and Generation System Based on VAE and Q-Networks (Part 4): Final Integration and Optimization). For correct operation, the prefix ¬¬_f must be removed and the filenames changed to the standard form, e.g., lem1.py, q.py, vae.py...
+➤ The final versions of the code modules have the prefix _f and take the following form: lem1_f, main_menu_f, morph_singleton_f, q_f, vae_f with the .py extension (the work is described in Automated Text Processing and Generation System Based on VAE and Q-Networks (Part 4): Final Integration and Optimization). For correct operation, the prefix _f must be removed and the filenames changed to the standard form, e.g., lem1.py, q.py, vae.py...
   
 > Warning: Always create file backups. Using Git for version control is highly recommended.
 
