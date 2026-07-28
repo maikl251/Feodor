@@ -26,6 +26,8 @@ Q-сети:
 
 ➤ Конфигурации с Q-сети с реализацией механизма логико-рефлексивной генерации цепочек рассуждений :
 - аналогичное переиминование файла (логика проекта использует название основного файла - q.py)
+
+➤ Финальные версии модулей кода имеют префикс *_f * и следующий вид lem1_f,  main_menu_f,  morph_singleton_f,  q_f, vae_f с расширением py (работа описана в Automated Text Processing and Generation System Based on VAE and Q-Networks _Part4_Final Integration and Optimization). Для корректной работы необходимо убрать префикс *_f *  и привести к стандартному виду типа «lem1.py», `vae.py`..
   
 > Важно: Всегда создавайте резервные копии файлов. Рекомендуется использовать Git для контроля версий.
 
@@ -94,6 +96,8 @@ Q-networks:
 
 ➤ Configurations with Q-networks that implement the mechanism of logical-reflexive generation of reasoning chains:
 - similar file renaming (the project logic uses the name of the main file, q.py)
+
+➤ The final versions of the code modules have the prefix ¬¬_f and take the following form: lem1_f, main_menu_f, morph_singleton_f, q_f, vae_f with the .py extension (the work is described in Automated Text Processing and Generation System Based on VAE and Q-Networks (Part 4): Final Integration and Optimization). For correct operation, the prefix ¬¬_f must be removed and the filenames changed to the standard form, e.g., lem1.py, q.py, vae.py...
   
 > Warning: Always create file backups. Using Git for version control is highly recommended.
 
@@ -134,6 +138,8 @@ Features
 **Title:** Automated Text Processing and Generation System Based on VAE and Q-Networks (Part 3).
            Implementation of the Logical-Reflexive Chain Generation Mechanism.
 **DOI:** https://doi.org/10.5281/zenodo.17272568
+**Title:** Automated Text Processing and Generation System Based on VAE and Q-Networks (Part 4): Final Integration and Optimization
+**DOI:**
 **Archive:** Zenodo (CERN)
 
 
