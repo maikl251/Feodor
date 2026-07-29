@@ -140,7 +140,7 @@ Features
 **DOI:** https://doi.org/10.5281/zenodo.17272568
 **Title:** Automated Text Processing and Generation System Based on VAE and Q-Networks (Part 4): Final Integration and Optimization
 **DOI:**
-https://doi.org/10.5281/zenodo.21663488
+https://doi.org/10.5281/zenodo.21663489
 **Archive:** Zenodo (CERN)
 
 
